@@ -1,0 +1,50 @@
+@import '../../app.component.scss';
+
+.gallery-section {
+
+  h3 {
+    text-align: center;
+    font-weight: 400;
+  }
+
+  .gallery-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .button-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .button-with-icon mat-icon {
+    order: 1;
+    margin-left: 0.2em;
+    margin-right: 0;
+  }
+
+  .selected-photo {
+    background-color: $pallete-colour-1;
+    padding: 0 0 0.25em 0;
+  }
+
+  .unselected-photo {
+    opacity: 0.6;
+    padding: 0 0.25em;
+  }
+
+  .list-photo-container {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-photo {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,46 @@
+<nav>
+  <ul>
+    <div class="logo">
+      <li>
+        <a routerLink="/home">
+          <img src="../../../../assets/logo.png" alt="logo-web"/>
+        </a>
+      </li>
+    </div>
+
+    <div class="navbar-options">
+      @if (user.isLoggedIn) {
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/rotate">Rotate</a>
+        </li>
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/galery">Galery</a>
+        </li>
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/crud">CRUD</a>
+        </li>
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/profile">Profile</a>
+        </li>
+
+
+        <p class="navbar-username">
+          Hello, {{ user.username }}
+        </p>
+        <li>
+          <a routerLinkActive="link-selected" (click)="logout()">Logout</a>
+        </li>
+      } @else {
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/home">Home</a>
+        </li>
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/login">Login</a>
+        </li>
+        <li>
+          <a routerLinkActive="link-selected" routerLink="/about">About</a>
+        </li> <!-- TODO: mover al footer -->
+      }
+    </div>
+  </ul>
+</nav>

@@ -1,0 +1,48 @@
+@import '../../../app.component.scss';
+
+ul {
+  display: flex;
+  background-color: $pallete-colour-1;
+  justify-content: space-between;
+  // align-items: center;
+  min-height: 3em;
+  height: 3.5em;
+  margin: unset;
+  box-sizing: border-box;
+}
+
+li {
+  height: inherit;
+  list-style: none;
+  padding-inline: 5px;
+}
+
+a {
+  display: inline-flex;
+  height: inherit;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.link-selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.logo {
+  height: 100%;
+}
+
+.navbar-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-username {
+  padding-inline: 40px 10px;
+  margin: unset;
+}

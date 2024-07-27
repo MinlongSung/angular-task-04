@@ -1,0 +1,11 @@
+@import '../../../app.component.scss';
+
+p {
+  margin: unset;
+}
+
+footer {
+  padding: 0.75em;
+  text-align: center;
+  background-color: $pallete-colour-1;
+}

@@ -1,0 +1,60 @@
+<section class="gallery-section">
+  <h3>Galery</h3>
+
+  <div class="main-photo">
+    @if (photos[currentPhoto]) {
+    <img src="{{ photos[currentPhoto].src }}"
+        alt="{{ photos[currentPhoto].title }}-img" height="250px"
+        [@openClose]="selectedPhotoSize === PhotoSize.Large ?
+                          'large' : (selectedPhotoSize === PhotoSize.Small ? 'small' : 'medium')">
+    }
+  </div>
+
+  <div class="gallery-btn-container">
+    <button mat-raised-button disabled="{{ currentPhoto === 0 && !isPlaying }}" (click)="changeCurrentPhoto(currentPhoto - 1)">
+      <mat-icon>arrow_back</mat-icon>
+      Anterior
+    </button>
+
+    <button mat-raised-button (click)="togglePlay()">
+      <mat-icon>{{ isPlaying ? 'pause_circle_outline' : 'play_circle_outline' }}</mat-icon>
+      {{ isPlaying ? 'Stop' : 'Play' }}
+    </button>
+
+    <button mat-raised-button class="button-with-icon" disabled="{{ currentPhoto === photos.length -1 && !isPlaying }}"
+      (click)="changeCurrentPhoto(currentPhoto + 1)">
+      Siguiente
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+
+    <button mat-raised-button (click)="switchPhotoSize(PhotoSize.Large)">
+      <mat-icon>
+        {{ selectedPhotoSize === PhotoSize.Large ? 'photo_size_select_actual' : 'photo_size_select_large' }}
+      </mat-icon>
+      {{ selectedPhotoSize === PhotoSize.Large ? 'Restaurar' : 'Aumentar' }}
+    </button>
+
+    <button mat-raised-button (click)="switchPhotoSize(PhotoSize.Small)">
+      <mat-icon>
+        {{ selectedPhotoSize === PhotoSize.Small ? 'photo_size_select_actual' : 'photo_size_select_small' }}
+      </mat-icon>
+      {{ selectedPhotoSize === PhotoSize.Small ? 'Restaurar' : 'Disminuir' }}
+    </button>
+  </div>
+
+  <div class="list-photo-container">
+    <button mat-icon-button disabled="{{ this.currentIndex.start === 0 }}" (click)="changeVisiblePhotos()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    @for (photo of photos.slice(this.currentIndex.start, this.currentIndex.end); track photo.id; let idx = $index;) {
+      <span (click)="changeCurrentPhoto(idx + this.currentIndex.start)">
+        <img src="{{ photo.src }}" alt="{{ photo.title }}-img" height="100px" class="{{ (idx + this.currentIndex.start) === currentPhoto ? 'selected-photo' : 'unselected-photo' }}">
+      </span>
+    }
+    
+    <button mat-icon-button disabled="{{ this.currentIndex.end === this.photos.length }}" (click)="changeVisiblePhotos(true)">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</section>

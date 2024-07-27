@@ -1,0 +1,23 @@
+@import '../../app.component.scss';
+
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .login-card {
+    padding: 2em;
+    height: 50%;
+    width: fit-content;
+
+    h3 {
+      text-align: center;
+      font-weight: 400;
+    }
+
+    mat-form-field {
+      min-width: 20em;
+    }
+  }
+}

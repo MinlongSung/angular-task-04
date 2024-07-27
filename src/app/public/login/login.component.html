@@ -1,0 +1,36 @@
+<section class="login-section">
+
+  @if (requesting) {
+    <img src="../../../assets/loader.gif" class="loader" alt="loader-gif">
+  } @else {
+    <mat-card class="login-card">
+      <mat-card-content>
+        <h3>Login</h3>
+        <form [formGroup]="loginForm">
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input type="text" name="username" formControlName="username" matInput />
+              @if (userNameControl.errors?.['required'] && (userNameControl.touched || userNameControl.dirty)) {
+                <mat-error>El username es obligatorio</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="password" name="password" formControlName="password" matInput />
+
+              @if (passwordControl.errors?.['required'] && (passwordControl.touched || passwordControl.dirty)) {
+                <mat-error>La contraseña es obligatoria</mat-error>
+              }
+            </mat-form-field>
+          </div>
+          <button mat-flat-button color="primary" (click)="login()">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  }
+
+</section>
